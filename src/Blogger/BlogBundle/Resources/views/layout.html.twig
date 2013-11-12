@@ -1,0 +1,19 @@
+{# src/Blogger/BlogBundle/Resources/views/layout.html.twig #}
+{# filter='?yui_css' #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        '@BloggerBlogBundle/Resources/public/css/*'
+		debug=false
+        output='css/blogger.css'
+        
+    %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sidebar %}
+	{% render controller("BloggerBlogBundle:Page:sidebar") %} 
+{% endblock %}
